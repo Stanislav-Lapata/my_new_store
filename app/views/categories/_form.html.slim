@@ -1,0 +1,4 @@
+= simple_form_for @category, defaults: { label_html: { class: 'col-sm-2 control-label' } } do |category|
+  = category.input :name
+  = category.input :description
+  = category.button :submit

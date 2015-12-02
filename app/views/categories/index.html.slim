@@ -1,0 +1,7 @@
+- @categories.each do |category|
+  = link_to category, class: 'link' do
+    div.cat
+      h2
+        = category.name
+      p.link
+        = category.description

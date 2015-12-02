@@ -1,0 +1,25 @@
+/* layout application */
+.dropmenu {
+ display: inline-block;
+}
+
+.category {
+  background: gray;
+}
+
+.container {
+  font-family: sans-serif;
+}
+
+.cat {
+  margin: 10px;
+  display: inline-block;
+  background: gray;
+  width: 340px;
+  height: 150px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
