@@ -2,14 +2,16 @@ h1
   = @category.name
   small
     - if admin?
-      = link_to 'Edit', edit_category_path(@category)
-      = link_to 'Delete', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}
+      = link_to ' Edit', edit_category_path(@category)
+      = link_to ' Delete', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}
 h4
   = @category.description
 
 div
   - @category.products.each do |product|
     = link_to product.title, [@category, product]
+    - if admin?
+      = link_to ' Edit', [:edit, @category, product]
 
 
 

@@ -1,0 +1,11 @@
+= simple_nested_form_for [@category, @product] do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :price
+  = f.input :in_stock
+  = f.fields_for :images do |i|
+    = i.input :image, as: :file
+    = image_tag i.object.image_url(:form) if i.object.image?
+    = i.link_to_remove "Delete image"
+  = f.link_to_add "Add image", :images
+  = f.button :submit

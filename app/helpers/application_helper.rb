@@ -8,4 +8,12 @@ module ApplicationHelper
   def category?
     @category && @category.id != nil
   end
+
+  def in_stock_or_not_in_stock
+    if @product.in_stock?
+      'In stock'
+    else
+      'Not in stock'
+    end
+  end
 end

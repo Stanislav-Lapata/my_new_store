@@ -1,9 +1,17 @@
 h1
-  = @product.title
+  = "#{@product.title} "
   small
-    = @product.in_stock
+    = in_stock_or_not_in_stock
+    - if admin?
+      = simple_form_for [@category, @product] do |f|
+        = f.input :in_stock, label: false
+        = f.button :submit
+div.owl-carousel
+  - @product.images.each do |i|
+    div.item
+      = image_tag i.image_url(:view_product)
 p
   = @product.description
 p
-  = @product.price
+  = number_to_currency(@product.price)
 

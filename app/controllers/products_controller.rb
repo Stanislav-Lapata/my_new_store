@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_products, only: [:show, :edit, :update, :destroy]
-  before_action :set_categories, only: [:new, :create]
+  before_action :set_categories, only: [:new, :show, :create, :edit, :update]
 
   def show
   end
@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.category_id = params[:category_id]
 
+
     if @product.save
       redirect_to root_url
     else
@@ -27,7 +28,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to @product
+      redirect_to @category
       flash[:notice] = "product updated"
     else
       render :edit
@@ -53,6 +54,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :in_stock, :category_id)
+    params.require(:product).permit(:title, :description, :price, :in_stock, images_attributes: [:id, :image, :_destroy])
   end
 end

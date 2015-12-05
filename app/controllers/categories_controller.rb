@@ -40,7 +40,8 @@ class CategoriesController < ApplicationController
     if @category.destroy
       redirect_to root_url
     else
-      render @category
+      redirect_to @category
+      flash[:notice] = 'Сan not be removed, have owned products'
     end
   end
 

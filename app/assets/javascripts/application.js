@@ -11,22 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require owl.carousel
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require turbolinks
 //= require_tree .
-$(".cat").click(function() {
-  $(this).find('.link');
-});
-
-
-
-
-
-
-
-/*
-
-$(document).on "ready page:change", ->
-  $('.cat').click ->
-    $(this).find('.link').slideUp()*/

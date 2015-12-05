@@ -7,10 +7,13 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'carrierwave'
+gem "rmagick"
 gem 'slim'
 gem 'rspec'
 gem 'capybara'
 gem 'cucumber'
+gem "nested_form"
+gem 'owlcarousel-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
