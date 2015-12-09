@@ -4,4 +4,4 @@
       h2
         = category.name
       p.link
-        = category.description
+        = truncate category.description, length: 80

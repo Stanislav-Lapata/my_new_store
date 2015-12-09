@@ -16,4 +16,8 @@ module ApplicationHelper
       'Not in stock'
     end
   end
+
+  def current_cart
+    @cart = session[:cart_id]
+  end
 end

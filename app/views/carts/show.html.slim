@@ -1,0 +1,16 @@
+h1
+  | Cart
+- @cart.line_items.each do |line_item|
+  div
+    p
+      = line_item.product.title
+      | &times
+      = button_to '-', decrement_line_item_path(line_item_id: line_item), remote: true
+      span id="line_item-#{line_item.id}"
+        = line_item.quantity
+      = button_to '+', increment_line_item_path(line_item_id: line_item), remote: true
+      div
+        span id="total_price-#{line_item.id}"
+          = number_to_currency line_item.total_price
+div.total_price
+  | Total price: #{number_to_currency @cart.cart_total_price}

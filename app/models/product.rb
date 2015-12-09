@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :category
   has_many :images
+  has_many :line_items
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :title, :description, presence: true, uniqueness: true

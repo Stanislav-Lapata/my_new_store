@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
   root 'categories#index'
+  resources :carts
+  resources :line_items, only: [:create, :update, :destroy] do
+    member do
+      post 'increment'
+      post 'decrement'
+    end
+  end
   resources :categories do
     resources :products
   end
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
