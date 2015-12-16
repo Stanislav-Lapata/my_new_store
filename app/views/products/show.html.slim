@@ -2,6 +2,9 @@ h1
   = "#{@product.title} "
   small
     = in_stock_or_not_in_stock
+    br/
+    - unless @product.reviews.count == 0
+      | Rating: #{product_rating(@product)}
     - if admin?
       = simple_form_for [@category, @product] do |f|
         = f.input :in_stock, label: false
@@ -14,5 +17,24 @@ p
   = @product.description
 p
   = number_to_currency(@product.price)
-  = link_to 'Add to cart', line_items_path(product_id: @product), method: :post
-
+  = link_to 'Add to cart', line_items_path(product_id: @product), method: :post, class: 'btn btn-default'
+- @product.reviews.each do |review|
+  - if review.id
+    fieldset
+      legend
+        = review.user.email
+        - if admin?
+          = link_to 'Delete', category_product_review_path(@category, @product, review), method: :delete, data: {confirm: 'Are you sure?'}
+      dl
+        p
+          | Rating: #{review.rating}
+        dt
+          = review.title
+        dd
+          = review.description
+- unless !user_signed_in? || @product.users.include?(current_user)
+  = simple_form_for [@category, @product, @review] do |review|
+    = review.input :title
+    = review.input :description
+    = review.input :rating, as: :radio_buttons, collection: 0..5
+    = review.button :submit

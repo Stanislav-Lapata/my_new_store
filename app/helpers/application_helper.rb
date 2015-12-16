@@ -17,7 +17,16 @@ module ApplicationHelper
     end
   end
 
-  def current_cart
-    @cart = session[:cart_id]
+  def set_cart
+    if @cart = Cart.find_by(id: session[:cart_id])
+      @cart
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+  end
+
+  def product_rating(product)
+    product.reviews.sum(:rating) / product.reviews.count
   end
 end

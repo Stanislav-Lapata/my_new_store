@@ -1,0 +1,6 @@
+- if admin?
+  h1 Admin panel
+  = link_to 'New category', new_category_path
+  p
+    - if category?
+      = link_to "Add product to #{@category.name}", new_category_product_path(@category)

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'categories#index'
-  resources :carts
+  resources :carts, only: [:show, :destroy]
   resources :line_items, only: [:create, :update, :destroy] do
     member do
       post 'increment'
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     end
   end
   resources :categories do
-    resources :products
+    resources :products do
+      resources :reviews, only: [:create, :update, :destroy]
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

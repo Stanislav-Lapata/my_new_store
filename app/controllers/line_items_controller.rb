@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
 
-  include CurrentCart
+  include ApplicationHelper
 
   before_action :set_cart, only: [:create, :increment, :decrement]
 

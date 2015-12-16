@@ -1,5 +1,9 @@
 /* layout application */
 
+.container {
+  background-color: #AAD8E6;
+}
+
 .dropmenu {
  display: inline-block;
 }
@@ -28,8 +32,26 @@ small {
   display: inline-block;
 }
 
+/* product */
+.owl-wrapper-outer {
+  background-color: white;
+  border-radius: 5px;
+
+  .owl-wrapper {
+    margin: 2px;
+  }
+}
+
+.radio_buttons {
+  display: block;
+}
+span.radio {
+  display: inline-block;
+}
+/* product */
+
 /* cart */
-form, div{
+form.button_to {
   display: inline;
 }
 
@@ -38,3 +60,5 @@ form, div{
   font-size: 24px;
 }
 /* cart */
+
+

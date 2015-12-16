@@ -3,15 +3,15 @@ class ProductsController < ApplicationController
   before_action :set_categories, only: [:new, :show, :create, :edit, :update]
 
   def show
+    @category = Category.find(params[:category_id])
+    @review = @product.reviews.build(user_id: current_user.id)
   end
 
   def new
     @product = Product.new
-
   end
 
   def edit
-
   end
 
   def create

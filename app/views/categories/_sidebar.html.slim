@@ -1,0 +1,4 @@
+h2 Categories:
+- Category.all.each do |category|
+  p
+    = button_to category.name, category, method: 'get', class: 'btn btn-info'

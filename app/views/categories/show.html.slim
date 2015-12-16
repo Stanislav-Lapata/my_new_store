@@ -10,6 +10,8 @@ h4
 div
   - @category.products.each do |product|
     = link_to product.title, [@category, product]
+    - unless product.reviews.count == 0
+      | Rating: #{product_rating(product)}
     - if admin?
       = link_to ' Edit', [:edit, @category, product]
 
